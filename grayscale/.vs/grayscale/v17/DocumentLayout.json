@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BCC0D384-D31B-4BD3-BFC5-709FE36EECAB}|grayscale\\grayscale.vcxproj|C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{BCC0D384-D31B-4BD3-BFC5-709FE36EECAB}|grayscale\\grayscale.vcxproj|solutionrelative:grayscale\\grayscale.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCC0D384-D31B-4BD3-BFC5-709FE36EECAB}|grayscale\\grayscale.vcxproj|C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BCC0D384-D31B-4BD3-BFC5-709FE36EECAB}|grayscale\\grayscale.vcxproj|solutionrelative:grayscale\\grayscale.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "grayscale.asm",
+              "DocumentMoniker": "C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.asm",
+              "RelativeDocumentMoniker": "grayscale\\grayscale.asm",
+              "ToolTip": "C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.asm",
+              "RelativeToolTip": "grayscale\\grayscale.asm",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-25T04:55:32.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "grayscale.c",
+              "DocumentMoniker": "C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.c",
+              "RelativeDocumentMoniker": "grayscale\\grayscale.c",
+              "ToolTip": "C:\\Users\\Roooiz\\Documents\\GitHub\\LBYARCH-Project\\grayscale\\grayscale\\grayscale.c",
+              "RelativeToolTip": "grayscale\\grayscale.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-25T04:55:05.797Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
