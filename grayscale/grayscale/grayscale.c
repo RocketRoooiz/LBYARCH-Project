@@ -58,7 +58,7 @@ int main() {
     }
 
     // Print the input array
-    printf("The input 2D array is:\n");
+    printf("\nThe input 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             printf("%hhu ", inputVals[i][j]);
@@ -73,6 +73,7 @@ int main() {
     time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
+    printf("\n=========== C ===========\n");
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -80,7 +81,7 @@ int main() {
         }
         printf("\n");
     }
-    printf("C | Total time taken: %f", time_taken);
+    printf("Total time taken: %.4f\n", time_taken);
 
     start = clock();
     ASMimgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
@@ -88,6 +89,7 @@ int main() {
     time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
+    printf("\n======= ASSEMBLY =======\n");
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -95,7 +97,7 @@ int main() {
         }
         printf("\n");
     }
-    printf("ASM | Total time taken: %f", time_taken);
+    printf("Total time taken: %.4f\n", time_taken);
 
     return 0;
 }
