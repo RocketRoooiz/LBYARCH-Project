@@ -2,9 +2,8 @@ section .text
 bits 64
 default rel
 
-global grayscale
+global imgCvtGrayInttoFloat
 
-grayscale:
-	inc ecx
-	mov [rdx], ecx
+imgCvtGrayInttoFloat:
+	
 ret
