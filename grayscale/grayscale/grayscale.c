@@ -16,6 +16,8 @@ void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** o
 int main() {
     int height;
     int width;
+    clock_t start, end;
+    double time_taken;
 
     // Read dimensions
     scanf("%d", &height);
@@ -37,7 +39,6 @@ int main() {
         for (int j = 0; j < width; j++) {
             while (1) {
                 int temp;
-                printf("Enter value for array[%d][%d]: ", i, j);
                 if (scanf("%d", &temp) != 1 || temp > 255 || temp < 0) {
                     while (getchar() != '\n');
                     printf("Invalid input! Please enter a value between 0 and 255.\n");
