@@ -1,9 +1,10 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
 
-// extern void imgCvtGrayInttoFloat()
+extern void ASMimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
 
 void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals) {
     for (int i = 0; i < height; i++) {
@@ -29,9 +30,14 @@ int main() {
         inputVals[i] = (uint8_t*)malloc(width * sizeof(uint8_t));
     }
 
-    float** outputVals = (float**)malloc(height * sizeof(float*));
+    float** CoutputVals = (float**)malloc(height * sizeof(float*));
     for (int i = 0; i < height; i++) {
-        outputVals[i] = (float*)malloc(width * sizeof(float));  // For storing float values
+        CoutputVals[i] = (float*)malloc(width * sizeof(float));  // For storing float values
+    }
+
+    float** ASMoutputVals = (float**)malloc(height * sizeof(float*));
+    for (int i = 0; i < height; i++) {
+        ASMoutputVals[i] = (float*)malloc(width * sizeof(float));  // For storing float values
     }
 
     // Input values for inputVals array
@@ -60,18 +66,36 @@ int main() {
         printf("\n");
     }
 
+    start = clock();
     // Call function to convert integer to float
-    CimgCvtGrayInttoFloat(height, width, inputVals, outputVals);
+    CimgCvtGrayInttoFloat(height, width, inputVals, CoutputVals);
+    end = clock();
+    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            printf("%.2f ", outputVals[i][j]);
+            printf("%.2f ", CoutputVals[i][j]);
         }
         printf("\n");
     }
+    printf("C | Total time taken: %f", time_taken);
 
+    start = clock();
+    ASMimgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
+    end = clock();
+    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+
+    // Print the output array (float values)
+    printf("The output 2D array is:\n");
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            printf("%.2f ", ASMoutputVals[i][j]);
+        }
+        printf("\n");
+    }
+    printf("ASM | Total time taken: %f", time_taken);
 
     return 0;
 }
