@@ -6,9 +6,9 @@ section .text
 bits 64
 default rel
 
-global ASMimgCvtGrayInttoFloat
+global imgCvtGrayInttoFloat
 
-ASMimgCvtGrayInttoFloat:
+imgCvtGrayInttoFloat:
 	; RCX height
 	; RDX width
 	; R8 input values

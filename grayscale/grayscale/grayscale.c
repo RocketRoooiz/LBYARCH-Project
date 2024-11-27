@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdint.h>
 
-extern void ASMimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
+extern void imgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
 
 void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals) {
     for (int i = 0; i < height; i++) {
@@ -84,7 +84,7 @@ int main() {
     printf("Total time taken: %.4f\n", time_taken);
 
     start = clock();
-    ASMimgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
+    imgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
     end = clock();
     time_taken = (double)(end - start) / CLOCKS_PER_SEC;
 
