@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdint.h>
 
-extern void imgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
+// extern void imgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
 
 void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals) {
     for (int i = 0; i < height; i++) {
@@ -17,12 +17,29 @@ void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** o
 int main() {
     int height;
     int width;
+    int choice;
+    double avgtime = 0.0;
+    srand(time(0));
+    uint8_t random;
     clock_t start, end;
     double time_taken;
 
     // Read dimensions
-    scanf("%d", &height);
-    scanf("%d", &width);
+    printf("Enter:\n1 if Manual input\n2 if Automated 10 x 10 matrix\n3 if Automated 100 x 100 matrix\n4 if automated 1000 x 1000 matrix\ninput: ");
+    scanf("%d", &choice);
+    if (choice == 1) {
+        scanf("%d", &height);
+        scanf("%d", &width);
+    } else if (choice == 2) {
+        height = 10;
+        width = 10;
+    } else if (choice == 3) {
+        height = 100;
+        width = 100;
+    } else if (choice == 4) {
+        height = 1000;
+        width = 1000;
+    }
 
     // Dynamically allocate memory for inputVals and outputVals
     uint8_t** inputVals = (uint8_t**)malloc(height * sizeof(uint8_t*));
@@ -43,36 +60,42 @@ int main() {
     // Input values for inputVals array
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            while (1) {
-                int temp;
-                if (scanf("%d", &temp) != 1 || temp > 255 || temp < 0) {
-                    while (getchar() != '\n');
-                    printf("Invalid input! Please enter a value between 0 and 255.\n");
+            if (choice == 1) {
+                while (1) {
+                    int temp;
+                    if (scanf("%d", &temp) != 1 || temp > 255 || temp < 0) {
+                        while (getchar() != '\n');
+                        printf("Invalid input! Please enter a value between 0 and 255.\n");
+                    }
+                    else {
+                        inputVals[i][j] = (uint8_t)temp;
+                        break;
+                    }
                 }
-                else {
-                    inputVals[i][j] = (uint8_t)temp;
-                    break;
-                }
+            }
+            else {
+                random = rand() % 256;
+                inputVals[i][j] = random;
             }
         }
     }
 
-    // Print the input array
-    printf("\nThe input 2D array is:\n");
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            printf("%hhu ", inputVals[i][j]);
-        }
-        printf("\n");
+
+    for (int i = 1; i <= 30; i++) {
+        start = clock();
+        // Call function to convert integer to float
+        CimgCvtGrayInttoFloat(height, width, inputVals, CoutputVals);
+        end = clock();
+        time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
+        printf("Total time taken(%d): %.4f\n", i, time_taken);
+        avgtime += time_taken;
     }
+    
+    avgtime /= 30;
 
-    start = clock();
-    // Call function to convert integer to float
-    CimgCvtGrayInttoFloat(height, width, inputVals, CoutputVals);
-    end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Average time taken: %.4f\n", avgtime);
 
-    // Print the output array (float values)
+    /*
     printf("\n=========== C ===========\n");
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
@@ -81,12 +104,13 @@ int main() {
         }
         printf("\n");
     }
-    printf("Total time taken: %.4f\n", time_taken);
+    */
 
+    /*
     start = clock();
     imgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
     printf("\n======= ASSEMBLY =======\n");
@@ -98,6 +122,7 @@ int main() {
         printf("\n");
     }
     printf("Total time taken: %.4f\n", time_taken);
+    */
 
     return 0;
 }
