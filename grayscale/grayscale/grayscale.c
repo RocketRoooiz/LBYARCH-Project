@@ -79,6 +79,7 @@ int main() {
             }
         }
     }
+    */
 
 
     for (int i = 1; i <= 30; i++) {
@@ -97,6 +98,7 @@ int main() {
 
     /*
     printf("\n=========== C ===========\n");
+    /*
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -114,6 +116,7 @@ int main() {
 
     // Print the output array (float values)
     printf("\n======= ASSEMBLY =======\n");
+    /*
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
