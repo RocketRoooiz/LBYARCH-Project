@@ -58,6 +58,7 @@ int main() {
     }
 
     // Print the input array
+    /*
     printf("\nThe input 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -65,15 +66,17 @@ int main() {
         }
         printf("\n");
     }
+    */
 
     start = clock();
     // Call function to convert integer to float
     CimgCvtGrayInttoFloat(height, width, inputVals, CoutputVals);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
     printf("\n=========== C ===========\n");
+    /*
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -81,15 +84,17 @@ int main() {
         }
         printf("\n");
     }
-    printf("Total time taken: %.4f\n", time_taken);
+    */
+    printf("Total time taken: %f msec\n", time_taken);
 
     start = clock();
     imgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
 
     // Print the output array (float values)
     printf("\n======= ASSEMBLY =======\n");
+    /*
     printf("The output 2D array is:\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
@@ -97,7 +102,8 @@ int main() {
         }
         printf("\n");
     }
-    printf("Total time taken: %.4f\n", time_taken);
+    */
+    printf("Total time taken: %f msec\n", time_taken);
 
     return 0;
 }
