@@ -4,12 +4,12 @@
 
 The program converts a grayscale image representation from int-based to float-based using C and x86 Assembly language. When running the program, the user is prompted with the option of either inputting their own image sizes and values, or randomizing the inputs for either a 10x10, 100x100, or 1000x1000 image.
 
+![image](https://github.com/user-attachments/assets/c745ee77-a0fc-4474-a658-92cd541ebe28)
+
 The outputs of C and Assembly are checked for correctness by the following code:
 
-![image](https://github.com/user-attachments/assets/2cee0247-8de9-4e2c-a473-d6d1c9e82d9d)
+![image](https://github.com/user-attachments/assets/07240fb4-97fe-4347-bf1f-fe79262b0367)
 
-
-![image](https://github.com/user-attachments/assets/c745ee77-a0fc-4474-a658-92cd541ebe28)
 
 ### I. Execution Time and Short Analysis of the Performance
 - At every run, the functions for converting int to float for C and Assembly are looped 30 times, the run times for these are tallied up and the averages are calculated. The following are the average run times for C and Assembly when given: A. a 10x10 input image size, B. a 100x100 input image size, and C. a 1000x1000 input image size.
