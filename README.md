@@ -34,7 +34,8 @@ Time Taken:
 
 ![image](https://github.com/user-attachments/assets/1705597a-fb4f-48b0-87cd-2db2edbe929f)
 
-Analysis of the Performance:
+### Analysis of the Performance:
+
 For the 10 x 10 matrix and 100 x 100 matrix, the execution time is so small that most of the function executions don’t reach 1 msec except for one instance for the C function. However, the difference can be clearly observed when the functions are called with larger inputs as seen with the test for the 1000 x 1000 matrix. Each time the C function is ran, it takes 3 to 4 msecs to execute while the assembly function takes 2 to 3 msecs. After 30 executions for each function, it can be observed that, on average, the C function takes 0.56667 msecs longer to finish execution than assembly. This is largely due to assembly eliminating high-level language abstractions such as with type checking or function calling which results in additional cycles per operation. Additionally, the usage of registers such as RAX, RBX, and XMM1 ensures that redundant memory loads and access is minimized, resulting in the faster execution times.
 
 ## II.) Screenshots of the Program Output with Correctness Check (C)
