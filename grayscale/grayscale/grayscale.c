@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdint.h>
 
-// extern void imgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
+extern void imgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals);
 
 void CimgCvtGrayInttoFloat(int height, int width, uint8_t** inputVals, float** outputVals) {
     for (int i = 0; i < height; i++) {
@@ -96,7 +96,6 @@ int main() {
     }
 
     // Print the output array (float values)
-    /*
     printf("\n=================== Output 2D Array ===================\n");
     printf("-------------------------- C --------------------------\n");
     for (int i = 0; i < height; i++) {
@@ -112,16 +111,13 @@ int main() {
         }
         printf("\n");
     }
-    printf("=======================================================\n");
-    */
-    
+    printf("=======================================================\n");    
 
     int valid = 1;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             if ((ASMoutputVals[i][j] - CoutputVals[i][j]) != 0) {
                 valid = 0;
-                break;
             }
         }
     }

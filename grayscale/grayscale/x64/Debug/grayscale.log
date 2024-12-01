@@ -1,4 +1,3 @@
 ﻿  grayscale.c
 C:\Users\Roooiz\Documents\GitHub\LBYARCH-Project\grayscale\grayscale\grayscale.c(23,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Roooiz\Documents\GitHub\LBYARCH-Project\grayscale\grayscale\grayscale.c(92,9): warning C4013: 'imgCvtGrayInttoFloat' undefined; assuming extern returning int
   grayscale.vcxproj -> C:\Users\Roooiz\Documents\GitHub\LBYARCH-Project\grayscale\x64\Debug\grayscale.exe
