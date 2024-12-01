@@ -2,6 +2,8 @@
 - Buencamino, Prince Bendrik C.
 - Ruiz, Chester Bryan C.
 
+Short Demo Video (DLSU Email): https://drive.google.com/file/d/1sQzAPKQiTc5H4MvHj4e6Jmok3wRGxdfW/view?usp=sharing
+
 The program converts a grayscale image representation from int-based to float-based using C and x86 Assembly language. When running the program, the user is prompted with the option of either inputting their own image sizes and values, or randomizing the inputs for either a 10x10, 100x100, or 1000x1000 image.
 
 ![image](https://github.com/user-attachments/assets/c745ee77-a0fc-4474-a658-92cd541ebe28)
@@ -62,5 +64,7 @@ Analysis of the Performance:
 ![image](https://github.com/user-attachments/assets/ca6583f4-59d5-41dc-96a8-1d3406e6e369)
 ![image](https://github.com/user-attachments/assets/b98b5631-1fa7-476b-8f03-ee9b7e849675)
 
+## III.) Short Video (5-10 mins) Showing Source Code, Compilation, and Execution of the C and x86-64 program
 
-
+Note: use DLSU email
+https://drive.google.com/file/d/1sQzAPKQiTc5H4MvHj4e6Jmok3wRGxdfW/view?usp=sharing
