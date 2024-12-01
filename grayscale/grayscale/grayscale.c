@@ -18,14 +18,15 @@ int main() {
     int height;
     int width;
     int choice;
-    double avgtime = 0.0;
+    double Cavgtime = 0.0;
+    double ASMavgtime = 0.0;
     srand(time(0));
     uint8_t random;
     clock_t start, end;
-    double time_taken;
+    double CTime_Taken[30], ASMTime_Taken[30];
 
     // Read dimensions
-    printf("Enter:\n1 if Manual input\n2 if Automated 10 x 10 matrix\n3 if Automated 100 x 100 matrix\n4 if automated 1000 x 1000 matrix\ninput: ");
+    printf("Options:\n1 - Manual input\n2 - Automated 10 x 10 matrix\n3 - Automated 100 x 100 matrix\n4 - Automated 1000 x 1000 matrix\nInput: ");
     scanf("%d", &choice);
     if (choice == 1) {
         scanf("%d", &height);
@@ -79,53 +80,72 @@ int main() {
             }
         }
     }
-    */
 
-
-    for (int i = 1; i <= 30; i++) {
+    for (int i = 0; i < 30; i++) {
         start = clock();
-        // Call function to convert integer to float
         CimgCvtGrayInttoFloat(height, width, inputVals, CoutputVals);
         end = clock();
-        time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
-        printf("Total time taken(%d): %.4f\n", i, time_taken);
-        avgtime += time_taken;
+        CTime_Taken[i] = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
+        Cavgtime += CTime_Taken[i];
+        
+        start = clock();
+        imgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
+        end = clock();
+        ASMTime_Taken[i] = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
+        ASMavgtime += ASMTime_Taken[i];
     }
-    
-    avgtime /= 30;
 
-    printf("Average time taken: %.4f\n", avgtime);
-
+    // Print the output array (float values)
     /*
-    printf("\n=========== C ===========\n");
-    /*
-    printf("The output 2D array is:\n");
+    printf("\n=================== Output 2D Array ===================\n");
+    printf("-------------------------- C --------------------------\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             printf("%.2f ", CoutputVals[i][j]);
         }
         printf("\n");
     }
-    */
-
-    /*
-    start = clock();
-    imgCvtGrayInttoFloat(height, width, inputVals, ASMoutputVals);
-    end = clock();
-    time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC;
-
-    // Print the output array (float values)
-    printf("\n======= ASSEMBLY =======\n");
-    /*
-    printf("The output 2D array is:\n");
+    printf("\n------------------------- ASM -------------------------\n");
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             printf("%.2f ", ASMoutputVals[i][j]);
         }
         printf("\n");
     }
-    printf("Total time taken: %.4f\n", time_taken);
+    printf("=======================================================\n");
     */
+    
+
+    int valid = 1;
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if ((ASMoutputVals[i][j] - CoutputVals[i][j]) != 0) {
+                valid = 0;
+                break;
+            }
+        }
+    }
+
+    if (valid == 0) {
+        printf("\nOutput difference between C and ASM!\n");
+    }
+    else {
+        printf("\nC and ASM have the same outputs.\n");
+    }
+
+    printf("======== Times (msec) ========\n");
+    printf("| Loop # | C Time | ASM Time |\n");
+    printf("+--------+--------+----------+\n");
+    for (int i = 0; i < 30; i++) {
+        printf("|   %-4d ", i+1);
+        printf("| %.4f ", CTime_Taken[i]);
+        printf("|  %.4f  |\n", ASMTime_Taken[i]);
+    }
+    Cavgtime /= 30;
+    ASMavgtime /= 30;
+    printf("+--------+--------+----------+\n");
+    printf("|  Avg:  | %.4f |  %.4f  | msecs\n", Cavgtime, ASMavgtime);
+    printf("==============================\n\n");
 
     return 0;
 }
